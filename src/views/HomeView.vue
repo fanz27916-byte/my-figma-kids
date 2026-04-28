@@ -5,30 +5,30 @@
       <div class="container">
         <nav class="navbar">
           <div class="logo">
-            <i :class="figmaDesign.layout.header.logo.icon"></i>
-            <span class="logo-text">{{ figmaDesign.layout.header.logo.text }}</span>
+            <i class="fas fa-child"></i>
+            <span class="logo-text">Kids Toys & Games Store</span>
           </div>
           
           <div class="nav-links">
-            <a 
-              v-for="item in figmaDesign.layout.header.navItems" 
-              :key="item.label"
-              :href="item.href" 
-              :class="['nav-link', { active: item.active }]"
-            >
-              {{ item.label }}
-            </a>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#toys" class="nav-link">Toys</a>
+            <a href="#games" class="nav-link">Games</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
           </div>
           
           <div class="nav-actions">
-            <button 
-              v-for="action in figmaDesign.layout.header.actions" 
-              :key="action.label"
-              class="icon-btn"
-              :class="{ 'cart-btn': action.badge }"
-            >
-              <i :class="action.icon"></i>
-              <span v-if="action.badge" class="cart-count">{{ action.badge }}</span>
+            <button class="icon-btn">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="icon-btn cart-btn">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">3</span>
+            </button>
+            <button class="btn btn-primary btn-sm">
+              <i class="fas fa-user"></i>
+              Sign In
             </button>
           </div>
         </nav>
@@ -40,25 +40,31 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-text">
-            <h1 class="hero-title" v-html="figmaDesign.layout.hero.title"></h1>
-            <p class="hero-description">{{ figmaDesign.layout.hero.description }}</p>
+            <h1 class="hero-title">
+              Welcome to <span class="text-primary">Kids</span> Toys & Games Store
+            </h1>
+            <p class="hero-description">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
             <div class="hero-actions">
-              <button :class="['btn', 'btn-lg', `btn-${figmaDesign.layout.hero.primaryButton.variant}`]">
-                <i :class="figmaDesign.layout.hero.primaryButton.icon"></i>
-                {{ figmaDesign.layout.hero.primaryButton.text }}
+              <button class="btn btn-primary btn-lg">
+                <i class="fas fa-shopping-bag"></i>
+                Shop Now
               </button>
-              <button :class="['btn', 'btn-lg', `btn-${figmaDesign.layout.hero.secondaryButton.variant}`]">
-                <i :class="figmaDesign.layout.hero.secondaryButton.icon"></i>
-                {{ figmaDesign.layout.hero.secondaryButton.text }}
+              <button class="btn btn-secondary btn-lg">
+                <i class="fas fa-play-circle"></i>
+                Watch Video
               </button>
             </div>
           </div>
           <div class="hero-image">
             <div class="image-placeholder">
-              <i class="fas fa-child"></i>
-              <i class="fas fa-robot"></i>
-              <i class="fas fa-car"></i>
-              <i class="fas fa-gamepad"></i>
+              <!-- Decorative shapes based on Figma vectors -->
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+              <div class="shape shape-4"></div>
+              <div class="shape shape-5"></div>
             </div>
           </div>
         </div>
@@ -71,19 +77,48 @@
         <h2 class="section-title">Shop by Category</h2>
         <p class="section-subtitle">Find the perfect toy for every age and interest</p>
         
-        <div class="categories-grid">
-          <div 
-            v-for="category in figmaDesign.layout.categories" 
-            :key="category.id"
-            class="category-card"
-          >
-            <div class="category-icon" :style="{ backgroundColor: category.color }">
-              <i :class="category.icon"></i>
+        <div class="grid">
+          <div class="card category-card">
+            <div class="icon icon-primary">
+              <i class="fas fa-robot"></i>
             </div>
-            <h3 class="category-title">{{ category.title }}</h3>
-            <p class="category-description">{{ category.description }}</p>
-            <a :href="category.link" class="category-link">
-              Shop Now <i class="fas fa-arrow-right"></i>
+            <h3>Educational Toys</h3>
+            <p>Fun learning toys that help develop cognitive skills and creativity.</p>
+            <a href="#" class="btn btn-outline">
+              Explore <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          
+          <div class="card category-card">
+            <div class="icon icon-secondary">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <h3>Board Games</h3>
+            <p>Family-friendly games for quality time and entertainment.</p>
+            <a href="#" class="btn btn-outline">
+              Explore <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          
+          <div class="card category-card">
+            <div class="icon icon-accent">
+              <i class="fas fa-car"></i>
+            </div>
+            <h3>Remote Control</h3>
+            <p>Exciting RC cars, drones, and vehicles for all skill levels.</p>
+            <a href="#" class="btn btn-outline">
+              Explore <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          
+          <div class="card category-card">
+            <div class="icon icon-primary">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <h3>Building Sets</h3>
+            <p>Creative construction sets to build imagination and motor skills.</p>
+            <a href="#" class="btn btn-outline">
+              Explore <i class="fas fa-arrow-right"></i>
             </a>
           </div>
         </div>
@@ -91,45 +126,116 @@
     </section>
 
     <!-- Featured Products -->
-    <section class="products">
+    <section class="products bg-light">
       <div class="container">
         <h2 class="section-title">Featured Products</h2>
         <p class="section-subtitle">Best sellers loved by kids and parents</p>
         
-        <div class="products-grid">
-          <div 
-            v-for="product in figmaDesign.layout.products" 
-            :key="product.id"
-            class="product-card"
-          >
+        <div class="grid">
+          <div class="card product-card">
             <div class="product-image">
               <div class="image-placeholder">
-                <i :class="product.icon"></i>
+                <i class="fas fa-robot"></i>
               </div>
-              <span v-if="product.badge" class="product-badge" :class="{ sale: product.badge === 'sale' }">
-                {{ product.badge === 'new' ? 'New' : 'Sale' }}
-              </span>
+              <span class="product-badge">New</span>
             </div>
             <div class="product-info">
-              <h3 class="product-title">{{ product.title }}</h3>
-              <p class="product-description">{{ product.description }}</p>
+              <h3>AI Learning Robot</h3>
+              <p>Interactive robot that teaches coding and STEM concepts through play.</p>
               <div class="product-price">
-                <span class="current-price">${{ product.price.toFixed(2) }}</span>
-                <span v-if="product.originalPrice" class="original-price">
-                  ${{ product.originalPrice.toFixed(2) }}
-                </span>
+                <span class="current-price">$89.99</span>
+                <span class="original-price">$119.99</span>
               </div>
               <div class="product-rating">
-                <i 
-                  v-for="star in 5" 
-                  :key="star"
-                  :class="[
-                    'fas',
-                    star <= Math.floor(product.rating) ? 'fa-star' : 
-                    star === Math.ceil(product.rating) && !Number.isInteger(product.rating) ? 'fa-star-half-alt' : 'fa-star'
-                  ]"
-                ></i>
-                <span class="rating-count">({{ product.reviewCount }})</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(128)</span>
+              </div>
+              <button class="btn btn-primary btn-sm">
+                <i class="fas fa-cart-plus"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          
+          <div class="card product-card">
+            <div class="product-image">
+              <div class="image-placeholder">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <span class="product-badge sale">Sale</span>
+            </div>
+            <div class="product-info">
+              <h3>Family Game Night Set</h3>
+              <p>Collection of 10 popular board games for all ages.</p>
+              <div class="product-price">
+                <span class="current-price">$49.99</span>
+                <span class="original-price">$79.99</span>
+              </div>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-count">(256)</span>
+              </div>
+              <button class="btn btn-primary btn-sm">
+                <i class="fas fa-cart-plus"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          
+          <div class="card product-card">
+            <div class="product-image">
+              <div class="image-placeholder">
+                <i class="fas fa-car"></i>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>RC Racing Car</h3>
+              <p>High-speed remote control car with 4WD and 2.4GHz remote.</p>
+              <div class="product-price">
+                <span class="current-price">$64.99</span>
+              </div>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(89)</span>
+              </div>
+              <button class="btn btn-primary btn-sm">
+                <i class="fas fa-cart-plus"></i>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          
+          <div class="card product-card">
+            <div class="product-image">
+              <div class="image-placeholder">
+                <i class="fas fa-puzzle-piece"></i>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>Mega Building Blocks</h3>
+              <p>500-piece construction set with storage box and idea book.</p>
+              <div class="product-price">
+                <span class="current-price">$34.99</span>
+              </div>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-count">(312)</span>
               </div>
               <button class="btn btn-primary btn-sm">
                 <i class="fas fa-cart-plus"></i>
@@ -146,21 +252,49 @@
       <div class="container">
         <div class="about-content">
           <div class="about-text">
-            <h2 class="section-title">{{ figmaDesign.layout.about.title }}</h2>
-            <p class="about-description">{{ figmaDesign.layout.about.description }}</p>
+            <h2 class="section-title">Why Choose Our Store?</h2>
+            <p class="about-description">
+              We're committed to providing the best toys and games that inspire creativity, learning, and fun for children of all ages.
+            </p>
             
             <div class="features">
-              <div 
-                v-for="(feature, index) in figmaDesign.layout.about.features" 
-                :key="feature.title"
-                class="feature"
-              >
-                <div class="feature-icon" :style="{ backgroundColor: `${feature.color}20`, color: feature.color }">
-                  <i :class="feature.icon"></i>
+              <div class="feature">
+                <div class="icon icon-primary">
+                  <i class="fas fa-shipping-fast"></i>
                 </div>
                 <div class="feature-content">
-                  <h4 class="feature-title">{{ feature.title }}</h4>
-                  <p class="feature-description">{{ feature.description }}</p>
+                  <h4>Free Shipping</h4>
+                  <p>Free delivery on all orders over $50.</p>
+                </div>
+              </div>
+              
+              <div class="feature">
+                <div class="icon icon-secondary">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Quality Guarantee</h4>
+                  <p>All products meet safety and quality standards.</p>
+                </div>
+              </div>
+              
+              <div class="feature">
+                <div class="icon icon-accent">
+                  <i class="fas fa-headset"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>24/7 Support</h4>
+                  <p>Our team is always here to help you.</p>
+                </div>
+              </div>
+              
+              <div class="feature">
+                <div class="icon icon-primary">
+                  <i class="fas fa-undo-alt"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Easy Returns</h4>
+                  <p>30-day return policy for all products.</p>
                 </div>
               </div>
             </div>
@@ -168,9 +302,9 @@
           
           <div class="about-image">
             <div class="image-placeholder">
-              <i class="fas fa-smile"></i>
-              <i class="fas fa-heart"></i>
-              <i class="fas fa-star"></i>
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
             </div>
           </div>
         </div>
@@ -183,54 +317,77 @@
         <div class="footer-content">
           <div class="footer-section">
             <div class="logo">
-              <i :class="figmaDesign.layout.footer.logo.icon"></i>
-              <span class="logo-text">{{ figmaDesign.layout.footer.logo.text }}</span>
+              <i class="fas fa-child"></i>
+              <span class="logo-text">Kids Toys & Games Store</span>
             </div>
-            <p class="footer-description">{{ figmaDesign.layout.footer.description }}</p>
+            <p class="footer-description">
+              Bringing joy and learning to children through quality toys and games since 2020.
+            </p>
             <div class="social-links">
-              <a 
-                v-for="social in figmaDesign.layout.footer.socialLinks" 
-                :key="social.platform"
-                :href="social.href" 
-                class="social-link"
-                :title="social.platform"
-              >
-                <i :class="social.icon"></i>
+              <a href="#" class="social-link" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" title="YouTube">
+                <i class="fab fa-youtube"></i>
               </a>
             </div>
           </div>
           
           <div class="footer-section">
-            <h4 class="footer-title">{{ figmaDesign.layout.footer.quickLinks.title }}</h4>
+            <h4 class="footer-title">Quick Links</h4>
             <ul class="footer-links">
-              <li v-for="link in figmaDesign.layout.footer.quickLinks.links" :key="link.label">
-                <a :href="link.href">{{ link.label }}</a>
-              </li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#toys">Toys</a></li>
+              <li><a href="#games">Games</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
-            <h4 class="footer-title">{{ figmaDesign.layout.footer.supportLinks.title }}</h4>
+            <h4 class="footer-title">Categories</h4>
             <ul class="footer-links">
-              <li v-for="link in figmaDesign.layout.footer.supportLinks.links" :key="link.label">
-                <a :href="link.href">{{ link.label }}</a>
-              </li>
+              <li><a href="#">Educational Toys</a></li>
+              <li><a href="#">Board Games</a></li>
+              <li><a href="#">Remote Control</a></li>
+              <li><a href="#">Building Sets</a></li>
+              <li><a href="#">Outdoor Toys</a></li>
+              <li><a href="#">Arts & Crafts</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
             <h4 class="footer-title">Contact Info</h4>
             <ul class="contact-info">
-              <li v-for="contact in figmaDesign.layout.footer.contactInfo" :key="contact.text">
-                <i :class="contact.icon"></i>
-                {{ contact.text }}
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                123 Toy Street, Playville, PL 12345
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                (123) 456-7890
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                hello@kidstoysstore.com
+              </li>
+              <li>
+                <i class="fas fa-clock"></i>
+                Mon-Fri: 9AM-6PM, Sat: 10AM-4PM
               </li>
             </ul>
           </div>
         </div>
         
         <div class="footer-bottom">
-          <p>&copy; 2024 {{ figmaDesign.layout.footer.logo.text }}. All rights reserved.</p>
+          <p>&copy; 2024 Kids Toys & Games Store. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -238,7 +395,7 @@
 </template>
 
 <script setup lang="ts">
-import { figmaDesign } from '../data/figma-mock-data'
+// Component logic will be added here
 </script>
 
 <style scoped>
@@ -262,14 +419,15 @@ import { figmaDesign } from '../data/figma-mock-data'
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
 }
 
 .logo i {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-h3);
+  color: var(--color-primary);
 }
 
 .nav-links {
@@ -278,8 +436,9 @@ import { figmaDesign } from '../data/figma-mock-data'
 }
 
 .nav-link {
-  color: var(--color-text);
-  font-weight: 500;
+  color: var(--color-text-dark);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
@@ -288,7 +447,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 .nav-link:hover,
 .nav-link.active {
   color: var(--color-primary);
-  background-color: rgba(255, 107, 139, 0.1);
+  background-color: rgba(255, 123, 77, 0.1);
 }
 
 .nav-actions {
@@ -301,7 +460,7 @@ import { figmaDesign } from '../data/figma-mock-data'
   background: none;
   border: none;
   font-size: var(--font-size-lg);
-  color: var(--color-text);
+  color: var(--color-text-dark);
   cursor: pointer;
   padding: var(--spacing-sm);
   border-radius: var(--radius-md);
@@ -310,7 +469,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 
 .icon-btn:hover {
   color: var(--color-primary);
-  background-color: rgba(255, 107, 139, 0.1);
+  background-color: rgba(255, 123, 77, 0.1);
 }
 
 .cart-btn {
@@ -322,7 +481,7 @@ import { figmaDesign } from '../data/figma-mock-data'
   top: -4px;
   right: -4px;
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-text-light);
   font-size: 10px;
   width: 16px;
   height: 16px;
@@ -334,7 +493,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, rgba(255, 107, 139, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+  background-color: var(--color-background);
   padding: var(--spacing-3xl) 0;
 }
 
@@ -346,14 +505,14 @@ import { figmaDesign } from '../data/figma-mock-data'
 }
 
 .hero-title {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-h1);
   margin-bottom: var(--spacing-lg);
   line-height: 1.1;
 }
 
 .hero-description {
   font-size: var(--font-size-lg);
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-2xl);
   max-width: 600px;
 }
@@ -362,15 +521,6 @@ import { figmaDesign } from '../data/figma-mock-data'
   display: flex;
   gap: var(--spacing-lg);
   flex-wrap: wrap;
-}
-
-.btn-lg {
-  padding: var(--spacing-lg) var(--spacing-2xl);
-  font-size: var(--font-size-lg);
-}
-
-.btn i {
-  margin-right: var(--spacing-sm);
 }
 
 .hero-image {
@@ -382,26 +532,66 @@ import { figmaDesign } from '../data/figma-mock-data'
 .image-placeholder {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background-color: var(--color-white);
   border-radius: var(--radius-xl);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
-.image-placeholder i {
-  font-size: 120px;
-  color: var(--color-white);
-  opacity: 0.8;
+.shape {
   position: absolute;
+  border-radius: var(--radius-full);
 }
 
-.image-placeholder i:nth-child(1) { top: 20%; left: 20%; }
-.image-placeholder i:nth-child(2) { top: 40%; right: 25%; }
-.image-placeholder i:nth-child(3) { bottom: 30%; left: 30%; }
-.image-placeholder i:nth-child(4) { bottom: 20%; right: 20%; }
+.shape-1 {
+  width: 120px;
+  height: 120px;
+  background-color: var(--color-primary);
+  top: 20%;
+  left: 20%;
+  opacity: 0.8;
+}
+
+.shape-2 {
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-secondary);
+  top: 40%;
+  right: 25%;
+  opacity: 0.8;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  background-color: var(--color-accent);
+  bottom: 30%;
+  left: 30%;
+  opacity: 0.8;
+}
+
+.shape-4 {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-primary);
+  bottom: 20%;
+  right: 20%;
+  opacity: 0.8;
+}
+
+.shape-5 {
+  width: 140px;
+  height: 140px;
+  background-color: var(--color-secondary);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+}
 
 /* Categories Section */
 .categories {
@@ -409,31 +599,7 @@ import { figmaDesign } from '../data/figma-mock-data'
   background-color: var(--color-white);
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: var(--spacing-sm);
-}
-
-.section-subtitle {
-  text-align: center;
-  color: var(--color-text-light);
-  margin-bottom: var(--spacing-3xl);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
-}
-
 .category-card {
-  background-color: var(--color-light);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-2xl);
   text-align: center;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
@@ -443,72 +609,29 @@ import { figmaDesign } from '../data/figma-mock-data'
   box-shadow: var(--shadow-lg);
 }
 
-.category-icon {
-  width: 80px;
-  height: 80px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.category-card .icon {
   margin: 0 auto var(--spacing-lg);
-  font-size: var(--font-size-2xl);
 }
 
-.category-card:nth-child(2) .category-icon {
-  background-color: var(--color-secondary);
-}
-
-.category-card:nth-child(3) .category-icon {
-  background-color: var(--color-accent);
-}
-
-.category-card:nth-child(4) .category-icon {
-  background-color: var(--color-dark);
-}
-
-.category-title {
-  font-size: var(--font-size-xl);
+.category-card h3 {
+  font-size: var(--font-size-h4);
   margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
 }
 
-.category-description {
-  color: var(--color-text-light);
+.category-card p {
+  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
-
-.category-link {
-  color: var(--color-primary);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-}
-
-.category-link:hover {
-  color: var(--color-secondary);
+  font-size: var(--font-size-small);
 }
 
 /* Products Section */
 .products {
   padding: var(--spacing-3xl) 0;
-  background-color: var(--color-light);
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
 }
 
 .product-card {
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
@@ -519,7 +642,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 
 .product-image {
   height: 200px;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  background-color: var(--color-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -529,13 +652,14 @@ import { figmaDesign } from '../data/figma-mock-data'
 .product-image .image-placeholder {
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background-color: var(--color-white);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .product-image .image-placeholder i {
   font-size: 48px;
-  color: var(--color-white);
+  color: var(--color-primary);
 }
 
 .product-badge {
@@ -543,16 +667,16 @@ import { figmaDesign } from '../data/figma-mock-data'
   top: var(--spacing-md);
   left: var(--spacing-md);
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-text-light);
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
 }
 
 .product-badge.sale {
   background-color: var(--color-accent);
-  color: var(--color-dark);
+  color: var(--color-text-dark);
 }
 
 .product-info {
@@ -560,13 +684,14 @@ import { figmaDesign } from '../data/figma-mock-data'
 }
 
 .product-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-h4);
   margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
 }
 
 .product-description {
-  color: var(--color-text-light);
-  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
   margin-bottom: var(--spacing-md);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -583,13 +708,13 @@ import { figmaDesign } from '../data/figma-mock-data'
 
 .current-price {
   font-size: var(--font-size-xl);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--color-primary);
 }
 
 .original-price {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-light);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
   text-decoration: line-through;
 }
 
@@ -602,15 +727,9 @@ import { figmaDesign } from '../data/figma-mock-data'
 }
 
 .rating-count {
-  color: var(--color-text-light);
-  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
   margin-left: var(--spacing-xs);
-}
-
-.btn-sm {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-size: var(--font-size-sm);
-  width: 100%;
 }
 
 /* About Section */
@@ -628,7 +747,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 
 .about-description {
   font-size: var(--font-size-lg);
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-2xl);
   max-width: 600px;
 }
@@ -645,58 +764,56 @@ import { figmaDesign } from '../data/figma-mock-data'
   gap: var(--spacing-md);
 }
 
-.feature-icon {
-  width: 48px;
-  height: 48px;
-  background-color: rgba(255, 107, 139, 0.1);
-  color: var(--color-primary);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-lg);
-  flex-shrink: 0;
-}
-
-.feature:nth-child(2) .feature-icon {
-  background-color: rgba(78, 205, 196, 0.1);
-  color: var(--color-secondary);
-}
-
-.feature:nth-child(3) .feature-icon {
-  background-color: rgba(255, 209, 102, 0.1);
-  color: var(--color-accent);
-}
-
-.feature:nth-child(4) .feature-icon {
-  background-color: rgba(45, 48, 71, 0.1);
-  color: var(--color-dark);
+.feature-content {
+  flex: 1;
 }
 
 .feature-title {
   font-size: var(--font-size-base);
   margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
 }
 
 .feature-description {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-light);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
 }
 
 .about-image .image-placeholder {
   width: 400px;
   height: 300px;
-  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-lg);
 }
 
-.about-image .image-placeholder i {
-  font-size: 80px;
+.about-image .shape-1 {
+  width: 150px;
+  height: 150px;
+  background-color: var(--color-primary);
+  top: 20%;
+  left: 20%;
+}
+
+.about-image .shape-2 {
+  width: 100px;
+  height: 100px;
+  background-color: var(--color-secondary);
+  bottom: 30%;
+  right: 25%;
+}
+
+.about-image .shape-3 {
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-accent);
+  top: 40%;
+  right: 40%;
 }
 
 /* Footer */
 .footer {
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  background-color: var(--color-text-dark);
+  color: var(--color-text-light);
   padding: var(--spacing-3xl) 0 var(--spacing-lg);
 }
 
@@ -708,7 +825,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 }
 
 .footer-section .logo {
-  color: var(--color-white);
+  color: var(--color-text-light);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -731,7 +848,7 @@ import { figmaDesign } from '../data/figma-mock-data'
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
+  color: var(--color-text-light);
   transition: all var(--transition-fast);
 }
 
@@ -743,7 +860,7 @@ import { figmaDesign } from '../data/figma-mock-data'
 .footer-title {
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-lg);
-  color: var(--color-white);
+  color: var(--color-text-light);
 }
 
 .footer-links {
@@ -785,7 +902,7 @@ import { figmaDesign } from '../data/figma-mock-data'
   padding-top: var(--spacing-lg);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.5);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-small);
 }
 
 /* Responsive Design */
@@ -839,13 +956,21 @@ import { figmaDesign } from '../data/figma-mock-data'
 }
 
 @media (max-width: 480px) {
-  .categories-grid,
-  .products-grid {
+  .grid {
     grid-template-columns: 1fr;
   }
   
   .footer-content {
     grid-template-columns: 1fr;
+  }
+  
+  .image-placeholder {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-h2);
   }
 }
 </style>
